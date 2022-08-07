@@ -17,15 +17,25 @@ const SinglePost = () => {
   const location = useLocation()
   const dispatch = useDispatch()
   const { post, loading, hasLikedPost, comments, likes } = useSelector(state => state.posts)
-  const { userImage, userId, isLoggedIn } = useSelector(state => state.auth)
+  // const { userImage, userId, isLoggedIn } = useSelector(state => state.auth)
+  const [userImage, setUserImage] = useState('')
+  const [userId, setUserId] = useState('')
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [like, setLike] = useState(hasLikedPost)
   const [dislike, setDislike] = useState(false)
   const [comment, setComment] = useState('')
-
+  const user = localStorage.getItem('profile')
   useEffect(() => {
-    dispatch(getSinglePost(id, userId))
+    if (user) {
+      const { image, userId } = JSON.parse(localStorage.getItem('profile'))
+      setUserImage(image)
+      setUserId(userId)
+      setIsLoggedIn(true)
+    } else {
+      dispatch(getSinglePost(id))
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' })
-  }, [dispatch, id, userId])
+  }, [dispatch, id, userId, user])
 
   useEffect(() => {
     console.log(location?.state?.scrollPosition)

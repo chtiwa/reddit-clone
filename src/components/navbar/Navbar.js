@@ -11,18 +11,26 @@ import Sidebar from './Sidebar'
 
 const Navbar = () => {
   const dispatch = useDispatch()
-  const { isLoggedIn, userImage, name } = useSelector(state => state.auth)
+  // const { isLoggedIn, userImage, name } = useSelector(state => state.auth)
   const { searchedPosts, searchLoading } = useSelector(state => state.posts)
   const [search, setSearch] = useState('')
   const [modal, setModal] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [userImage, setUserImage] = useState('')
+  const [name, setName] = useState('')
+  const user = localStorage.getItem('profile')
   useEffect(() => {
-    if (name === null) {
-      dispatch(checkLogin())
+    if (user) {
+      const { image, name } = JSON.parse(localStorage.getItem('profile'))
+      setIsLoggedIn(true)
+      setUserImage(image)
+      setName(name)
     }
-  }, [dispatch, name])
+  }, [dispatch, user])
 
   const handleLogout = () => {
     dispatch(logout())
+    window.location.reload()
   }
 
   const handleKeyUp = (e) => {

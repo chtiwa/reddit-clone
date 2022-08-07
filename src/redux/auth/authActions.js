@@ -13,14 +13,15 @@ import {
 import axios from 'axios'
 import '../../axios'
 
-const url = 'https://reddit-clone-cthiwa-backend.netlify.app/api/auth'
+const url = 'https://reddit-clone-chtiwa.herokuapp.com/api/auth'
+// const url = 'http://localhost:5000/api/auth'
 
 export const login = (form) => async (dispatch) => {
   dispatch({ type: SET_LOADING })
   try {
-    const { data: { user: { name, image, userId } } } = await axios.post(`${url}/login`, form)
+    const { data: { user: { name, image, userId }, token } } = await axios.post(`${url}/login`, form)
     // console.log(image)
-    dispatch({ type: AUTH, payload: { name, image, userId } })
+    dispatch({ type: AUTH, payload: { name, image, userId, token } })
     // window.location.reload()
   } catch (error) {
     dispatch({ type: SET_ERROR, payload: error.response.data.message })
@@ -35,8 +36,8 @@ export const signup = (form) => async (dispatch) => {
         'content-type': 'multipart/form-data'
       }
     }
-    const { data: { user: { name, image, userId } } } = await axios.post(`${url}/signin`, form, config)
-    dispatch({ type: AUTH, payload: { name, image, userId } })
+    const { data: { user: { name, image, userId }, token } } = await axios.post(`${url}/signin`, form, config)
+    dispatch({ type: AUTH, payload: { name, image, userId, token } })
     // window.location.reload()
   } catch (error) {
     dispatch({ type: SET_ERROR, payload: error.message })
@@ -44,10 +45,9 @@ export const signup = (form) => async (dispatch) => {
 }
 
 export const logout = () => async (dispatch) => {
-  dispatch({ type: SET_LOADING })
   try {
-    const { data } = await axios.get(`${url}/logout`)
-    console.log(data)
+    // const { data } = await axios.get(`${url}/logout`)
+    // console.log(data)
     dispatch({ type: LOGOUT })
   } catch (error) {
     dispatch({ type: SET_ERROR, payload: error.message })
@@ -57,9 +57,9 @@ export const logout = () => async (dispatch) => {
 export const checkLogin = () => async (dispatch) => {
   dispatch({ type: SET_LOADING })
   try {
-    const { data: { isLoggedIn, name, image, userId } } = await axios.get(`${url}/checklogin`)
+    const { data: { isLoggedIn, name, image, userId, token } } = await axios.get(`${url}/checklogin`)
     // console.log(data)
-    dispatch({ type: CHECK_LOGIN, payload: { isLoggedIn, name, image, userId } })
+    dispatch({ type: CHECK_LOGIN, payload: { isLoggedIn, name, image, userId, token } })
   } catch (error) {
     dispatch({ type: SET_ERROR, payload: error.message })
   }

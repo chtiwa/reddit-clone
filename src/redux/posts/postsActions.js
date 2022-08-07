@@ -21,7 +21,8 @@ import {
 import '../../axios'
 import axios from 'axios'
 
-const url = 'https://reddit-clone-cthiwa-backend.netlify.app/api/posts'
+const url = 'https://reddit-clone-chtiwa.herokuapp.com/api/posts'
+// const url = 'http://localhost:5000/api/posts'
 
 export const setPage = (page) => (dispatch) => {
   dispatch({ type: SET_PAGE, payload: page })
@@ -34,7 +35,7 @@ export const getPosts = (page) => async (dispatch) => {
     const { data: { posts, pages } } = await axios.get(`${url}?page=${page}`)
     dispatch({ type: GET_POSTS, payload: { posts, pages } })
   } catch (error) {
-    dispatch({ type: SET_ERROR, payload: error.response.data.message })
+    dispatch({ type: SET_ERROR, payload: error })
   }
 }
 

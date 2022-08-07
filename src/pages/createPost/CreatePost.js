@@ -14,7 +14,7 @@ const CreatePost = () => {
   const location = useLocation()
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const { error, loading } = useSelector(state => state.posts)
+  const { loading } = useSelector(state => state.posts)
   const [form, setForm] = useState({ title: '', description: '' })
   const [fileData, setFileData] = useState('')
   const [file, setFile] = useState('')

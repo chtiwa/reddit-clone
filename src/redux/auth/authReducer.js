@@ -30,7 +30,6 @@ const reducer = (state = initialState, action) => {
       error: false
     }
     case SET_ERROR:
-      // console.log(action.payload.error.response.data)
       return {
         ...state,
         error: action.payload,
@@ -38,6 +37,7 @@ const reducer = (state = initialState, action) => {
         success: false
       }
     case AUTH:
+      localStorage.setItem('profile', JSON.stringify({ ...action.payload }))
       return {
         ...state,
         name: action.payload.name,
@@ -47,22 +47,26 @@ const reducer = (state = initialState, action) => {
         loading: false,
         error: false
       }
-    case LOGOUT: return {
-      name: '',
-      userImage: '',
-      isLoggedIn: false,
-      error: false,
-      loading: false
-    }
-    case CHECK_LOGIN: return {
-      ...state,
-      name: action.payload.name,
-      isLoggedIn: action.payload.isLoggedIn,
-      userImage: action.payload.image,
-      userId: action.payload.userId,
-      loading: false,
-      error: false
-    }
+    case LOGOUT:
+      localStorage.clear()
+      return {
+        name: '',
+        userImage: '',
+        isLoggedIn: false,
+        error: false,
+        loading: false
+      }
+    case CHECK_LOGIN:
+      localStorage.setItem('profile', JSON.stringify({ ...action.payload }))
+      return {
+        ...state,
+        name: action.payload.name,
+        isLoggedIn: action.payload.isLoggedIn,
+        userImage: action.payload.image,
+        userId: action.payload.userId,
+        loading: false,
+        error: false
+      }
     case FORGOT_PASSWORD:
       return {
         ...state,
