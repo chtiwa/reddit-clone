@@ -84,6 +84,7 @@
 
 .navbar-search-content {
   width: 100%;
+  height: max-content;
 }
 
 .navbar-search-content-post {
@@ -111,15 +112,15 @@
 }
 
 .navbar-search-content-post-image {
-  width: 100px;
-  height: 100px;
+  max-width: 100px;
+  max-height: 100px;
   margin-right: 0.5rem;
 }
 
 .navbar-search-content-post-image img,
 .navbar-search-content-post-image video {
-  height: 100%;
-  width: 100%;
+  max-height: 100px;
+  max-width: 100px;
 }
 
 
