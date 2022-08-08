@@ -1,6 +1,7 @@
 .subreddit-posts-container {
   text-align: center;
-  margin: 0.5rem 25vw;
+  margin: 0.5rem auto;
+  max-width: 70vw;
 }
 
 .subreddit-posts-span-container {

@@ -10,7 +10,7 @@
   flex-direction: column;
   align-items: center;
   background-color: #fefefe;
-  width: 50vw;
+  width: 80vw;
   height: max-content;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   border-radius: 5px;
@@ -76,17 +76,6 @@
   width: 100%;
 }
 
-.form-control-filebase {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.form-control-filebase label {
-  margin-right: 0.5rem;
-}
-
-
 .form input {
   margin: 1rem 0;
   padding: 0.8rem 2rem;
@@ -104,9 +93,9 @@ input:focus {
   background-color: #f6f6f6;
 }
 
-.password-input {
+/* .password-input {
   position: relative;
-}
+} */
 
 .lock-icon {
   font-size: 30px;
@@ -179,4 +168,12 @@ input:focus {
   }
 }
 
-/* @media screen and (max-width) */
+@media screen and (max-width:768px) {
+  .form input {
+    width: 60vw;
+  }
+
+  .lock-icon {
+    right: 15%;
+  }
+}

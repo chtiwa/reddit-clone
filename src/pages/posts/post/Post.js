@@ -72,7 +72,7 @@ const Post = ({ title, file, tags, description, _id, creator, likes, comments, c
           </Link>
         </div>
       </div>
-      <Link to={`/post/${_id}`} >
+      <Link to={`/post/${_id}`} className="link-post-img" >
         {fileDisplay === '' ? (
           <></>
         ) : (

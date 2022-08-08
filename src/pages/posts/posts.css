@@ -1,14 +1,16 @@
 .posts-container-major {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 80vw;
 }
 
 .posts-container {
-  display: grid;
-  /* grid-template-columns: 1fr; */
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
-  width: 100%;
   margin-top: 1rem;
 }
 
@@ -16,4 +18,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media screen and (max-width:600px) {
+  .posts-container-major {
+    width: 95vw;
+  }
 }

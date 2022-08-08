@@ -25,15 +25,17 @@ const Home = () => {
           <div className="tags-title">
             Top subreddits :
           </div>
-          {!tagsLoading && tags.length > 0 && tags.map((tag, index) => {
-            return (
-              <div className="tag" key={index}>
-                <Link to={`/r/${tag}`} className='tag-link' state={{ tag: tag }} >
-                  {index + 1}) &nbsp; /r/{tag}
-                </Link>
-              </div>
-            )
-          })}
+          <div className="tag-holder">
+            {!tagsLoading && tags.length > 0 && tags.map((tag, index) => {
+              return (
+                <div className="tag" key={index}>
+                  <Link to={`/r/${tag}`} className='tag-link' state={{ tag: tag }} >
+                    {index + 1}) &nbsp; /r/{tag}
+                  </Link>
+                </div>
+              )
+            })}
+          </div>
           {tagsLoading && (
             <ul className="skeleton-home-list">
               <li className="skeleton"></li>

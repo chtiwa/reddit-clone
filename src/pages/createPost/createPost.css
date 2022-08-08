@@ -164,8 +164,8 @@ input[type=file]:focus {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  width: 95vw;
-  height: 80vh;
+  /* width: 100vw; */
+  /* height: ; */
 }
 
 .loader {

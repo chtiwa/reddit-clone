@@ -1,0 +1,24 @@
+.notfound-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
+  padding: 8rem 0;
+}
+
+.notfound-container h3 {
+  font-size: 26px;
+}
+
+.notfound-container h1 {
+  font-size: 40px;
+  margin-bottom: 1rem;
+}
+
+.notfound-container a {
+  cursor: pointer;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.notfound-container a:hover {
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.4);
+}

@@ -8,7 +8,7 @@ import CreatePost from './pages/createPost/CreatePost';
 import SubredditPosts from './pages/subredditPosts/SubredditPosts';
 import CreatorPosts from './pages/creatorPosts/CreatorPosts';
 import ResetPassword from './pages/authentication/ResetPassword'
-// import NotFound from './pages/notFound/NotFound'
+import NotFound from './pages/notFound/NotFound'
 
 const App = () => {
 
@@ -26,7 +26,7 @@ const App = () => {
         <Route path="/r/:tag" element={<SubredditPosts />} />
         <Route path="/user" element={<CreatorPosts />} />
         <Route path="/resetpassword/:resetToken" element={<ResetPassword />} />
-        {/* <Route path="*" element={<NotFound />} /> */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   )

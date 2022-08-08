@@ -19,7 +19,7 @@ const SinglePost = () => {
   const { post, loading, hasLikedPost, comments, likes } = useSelector(state => state.posts)
   // const { userImage, userId, isLoggedIn } = useSelector(state => state.auth)
   const [userImage, setUserImage] = useState('')
-  const [userId, setUserId] = useState('')
+  const [userId, setUserId] = useState()
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [like, setLike] = useState(hasLikedPost)
   const [dislike, setDislike] = useState(false)
@@ -30,15 +30,14 @@ const SinglePost = () => {
       const { image, userId } = JSON.parse(localStorage.getItem('profile'))
       setUserImage(image)
       setUserId(userId)
+      // dispatch(getSinglePost(id, userId))
       setIsLoggedIn(true)
-    } else {
-      dispatch(getSinglePost(id))
     }
+    dispatch(getSinglePost(id, userId))
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }, [dispatch, id, userId, user])
 
   useEffect(() => {
-    console.log(location?.state?.scrollPosition)
     if (hasLikedPost) {
       setLike(true)
     } else {
@@ -100,10 +99,10 @@ const SinglePost = () => {
 
   return !loading && post && (
     <div className='singlepost-container'>
+      <div className="back" onClick={() => navigate(-1)}>
+        <TiArrowBack className='back-icon' />
+      </div>
       <div className="singlepost">
-        <div className="back" onClick={() => navigate(-1)}>
-          <TiArrowBack className='back-icon' />
-        </div>
         <div className="singlepost-info">
           <div className="singlepost-info-creator">
             <div className="avatar">
@@ -154,7 +153,7 @@ const SinglePost = () => {
                 )}
               </div>
               <div className='textarea-container'>
-                <textarea className="textarea" name="" id="" placeholder='Add your comment to this post' minLength="2" maxLength="300" value={comment || ''} onChange={handleCommentChange} />
+                <textarea className="textarea" name="" id="" placeholder='Add a comment' minLength="2" maxLength="300" value={comment || ''} onChange={handleCommentChange} />
                 <IoMdSend className="write-comment-icon" onClick={handleComment} />
               </div>
             </>

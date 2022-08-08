@@ -1,7 +1,7 @@
 .post-container {
   display: flex;
   flex-direction: column;
-  width: 50vw;
+  width: 65vw;
   height: max-content;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
@@ -26,6 +26,7 @@
 .avatar img {
   height: 40px;
   width: 40px;
+  border-radius: 15%;
   cursor: pointer;
 }
 
@@ -88,10 +89,17 @@
   text-align: center;
 }
 
+.link-post-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
 .post-img {
   cursor: pointer;
-  height: 500px;
-  width: 80%;
+  /* max-height: 400px; */
+  /* width: 80%; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -99,15 +107,16 @@
   background-color: #fefefe;
 }
 
-img,
-video {
-  height: 100%;
-  width: 80%;
+.post-img img,
+.post-img video {
+  max-height: 100%;
+  max-width: 100%;
   border-radius: 10px;
 }
 
 .post-desc {
-  margin-top: 1rem;
+  padding: 0.3rem;
+  margin: auto;
   text-align: center;
 }
 
@@ -242,6 +251,6 @@ video {
 
 @media screen and (max-width:764px) {
   .post-container {
-    width: 80vw;
+    width: 90vw;
   }
 }
