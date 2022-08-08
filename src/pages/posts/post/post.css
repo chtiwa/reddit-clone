@@ -98,8 +98,7 @@
 
 .post-img {
   cursor: pointer;
-  /* max-height: 400px; */
-  /* width: 80%; */
+  max-width: 70vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -107,13 +106,14 @@
   background-color: #fefefe;
 }
 
-.post-img img,
-.post-img video {
-  /* max-height: 600px; */
-  /* max-width: 600px; */
+.post-img img {
   max-height: 600px;
-  max-width: 80vw;
+  max-width: 70vw;
   border-radius: 10px;
+}
+
+.post-img video {
+  max-width: 60vw;
 }
 
 .post-desc {

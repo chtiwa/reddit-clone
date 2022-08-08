@@ -84,7 +84,7 @@
 
 .singlepost-img-container {
   max-height: 600px;
-  max-width: 600px;
+  max-width: 80vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -93,7 +93,7 @@
 
 .singlepost-img {
   max-height: 600px;
-  max-width: 600px;
+  max-width: 80vw;
   border-radius: 10px;
 }
 

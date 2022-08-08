@@ -129,7 +129,7 @@ const SinglePost = () => {
           {fileDisplay}
         </div>
         <div className="singlepost-description">
-          <p>{post.description}</p>
+          <p>&nbsp; &nbsp; {post.description}</p>
         </div>
         <div className="post-features">
           <div className="votes">
